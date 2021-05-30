@@ -1,5 +1,9 @@
 # Lua Stuff
 *.out
+/luarocks
+/lua
+/lua_modules
+/.luarocks
 
 # Mac Stuff
 

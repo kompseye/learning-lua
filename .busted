@@ -1,0 +1,7 @@
+return {
+  _all = {
+    verbose = true,    
+    ROOT = {"test"},
+    pattern = "_test"
+  }
+}
