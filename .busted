@@ -1,7 +1,9 @@
+-- https://github.com/Olivine-Labs/busted/tree/master/busted/outputHandlers
 return {
   _all = {
     verbose = true,    
     ROOT = {"test"},
-    pattern = "_test"
+    pattern = "_test",
+    output = "gtest"
   }
 }

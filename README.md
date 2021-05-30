@@ -42,3 +42,8 @@ Extra commands:
 * https://www.lua.org/start.html
 * https://www.lua.org/manual/
 * https://olivinelabs.com/busted/
+
+# Additional reading
+* https://stackoverflow.com/questions/46351239/how-do-i-write-busted-unit-tests-for-functions-that-return-ok-err
+* https://stackoverflow.com/questions/44418727/is-it-possible-to-conditionally-load-libraries-in-lua
+* https://ericjmritz.wordpress.com/2013/08/26/lua-unit-testing-first-impressions-of-busted/
