@@ -4,6 +4,6 @@ return {
     verbose = true,    
     ROOT = {"test"},
     pattern = "_test",
-    output = "gtest"
+    output = "utfTerminal"
   }
 }

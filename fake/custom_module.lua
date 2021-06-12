@@ -5,7 +5,7 @@
 local custom_module = {}
 
 -- add a signature for each function
-function custom_module.foo(name) return "fake" end
-function custom_module.boo(name) return "fake" end
+function custom_module.foo(name) return "fake custom_module.foo" end
+function custom_module.boo(name) return "fake custom_module.boo" end
 
 return custom_module

@@ -7,7 +7,7 @@ describe("HelloLua", function()
   -- package.loaded works because the module is loaded once here in the unit test and used again in the module under test
   -- https://stackoverflow.com/questions/48409979/mocking-local-imports-when-unit-testing-lua-code-with-busted  
 
-  insulate("Demo Stubs", function()
+  insulate("++Demo Stubs++", function()
     -- Stubs
     --   * fake out the custom module with package.loaded
     --   * stub the functions
@@ -42,7 +42,7 @@ describe("HelloLua", function()
     end)
   end)
 
-  insulate("Demo Spies", function()
+  insulate("++Demo Spies++", function()
 
     -- Spies
     --   * require the fake module locally to spy on the functions
@@ -77,13 +77,15 @@ describe("HelloLua", function()
     end)
   end)
 
-  insulate("Demo Hook Stubs", function()
+  insulate("++Demo Hook Stubs++", function()
 
     -- Hook Stubs
     --   * require the fake module
     --   * define "hook stub" (seems similar to proxyquire)
     --   * use setmetatable to intercept the call to the module
     -- https://stackoverflow.com/questions/44424819/unit-testing-local-function-in-lua
+    -- https://www.tutorialspoint.com/lua/lua_metatables.htm
+    -- https://en.wikipedia.org/wiki/Lua_(programming_language)#Metatables
     local custom_module = require "fake.custom_module"
     local function hook_func(_, key)
       print('Accessing "custom_module" attribute '..tostring(key))
@@ -93,6 +95,18 @@ describe("HelloLua", function()
 
       return custom_module[key]
     end
+
+    -- the references above should be read first, then read this (and perhaps then re-read the references!):
+    -- rather than assign custom_module to "package.loaded", use the setmetatable to do something cool!
+    --   setmetatable(table,metatable): This method is used to set metatable for a table.
+    --
+    -- looking at the next line of code:
+    --   the first argument table is an empty table 
+    --   the second argument is the metatable. the metatable's values are dynamic:
+    --     __index is a predefined function in Lua which will be called when the key
+    --     doesn't exist. since the table is empty and the meta is dynamic, when a key of the table is 
+    --     accessed, the hook function is called. the hook function can take more action, then ultimately
+    --     return the custom_module call
     package.loaded["custom_module"] = setmetatable({}, {__index = hook_func})
     
     -- stub the global variable in the module under test
