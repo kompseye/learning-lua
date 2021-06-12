@@ -38,6 +38,9 @@ Extra commands:
 * List dependencies `luarocks list`
 * Remove dependencies:`luarocks purge --tree lua_modules`
 
+[Luacheck](https://github.com/mpeterv/luacheck) used for linter:
+* Run linter: `./lua_modules/bin/luacheck src`
+
 # References
 * https://www.lua.org/start.html
 * https://www.lua.org/manual/

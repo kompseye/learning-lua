@@ -11,6 +11,7 @@ description = {
 }
 dependencies = {
    "lua >= 5.0, < 6.0",
+   "luacheck >= 0.24.0-2",
    "busted >= 2.0.0-1",
 }
 build = {
